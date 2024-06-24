@@ -1,12 +1,17 @@
 import { KeyboardAvoidingView, StyleSheet, TextInput, Pressable} from 'react-native';
-import EditScreenInfo from '@/components/EditScreenInfo';
 import { Text, View } from '@/components/Themed';
 import React, { useState } from 'react'
+import { Link, useRouter } from 'expo-router'
 
 
-export default function mongoDBLogin() {
+const LoginPage = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+    const router = useRouter();
+    const handlePress = () => {
+        router.replace('tabs')
+    }
 
     return (
         <View style={styles.test}>
@@ -57,21 +62,27 @@ export default function mongoDBLogin() {
                         marginLeft:'auto', 
                         marginRight:'auto',
                         borderRadius:6
-                    }}>
+                    }}
+                    onPress={handlePress}>
                             
                     <Text style={{color:'white', fontSize:16, fontWeight:'bold',textAlign:'center'}}>Login</Text>
                     
                 </Pressable>
 
+                <Link href={'/register'} asChild>
+                
                 <Pressable style={{marginTop:15}}>
                     <Text style={{textAlign:'center', color:'gray', fontSize:16}}>Don't have an account? Sign up here!</Text>
                 </Pressable>
+                </Link>
 
                 </View>
             </KeyboardAvoidingView>
         </View>
     );
 }
+
+export default LoginPage;
 
 const styles = StyleSheet.create({
     container: {

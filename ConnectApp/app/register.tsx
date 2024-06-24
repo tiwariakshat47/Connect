@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const modal = () => {
+const register = () => {
   return (
     <View>
-      <Text>modal</Text>
+      <Text>register</Text>
     </View>
   )
 }
 
-export default modal
+export default register
 
 const styles = StyleSheet.create({})
