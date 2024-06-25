@@ -9,6 +9,9 @@ const LoginPage = () => {
     const [password, setPassword] = useState("");
 
     const router = useRouter();
+
+    //Handle press definition, temporarily is tabs until i can find out
+    //how to make it (tabs) so that its hidden
     const handlePress = () => {
         router.replace('tabs')
     }
@@ -63,6 +66,7 @@ const LoginPage = () => {
                         marginRight:'auto',
                         borderRadius:6
                     }}
+                    //Handlepress allows user to go from login page to tabs
                     onPress={handlePress}>
                             
                     <Text style={{color:'white', fontSize:16, fontWeight:'bold',textAlign:'center'}}>Login</Text>
