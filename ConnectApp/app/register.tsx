@@ -27,7 +27,7 @@ import {
   
       // send a POST  request to the backend API to register the user
 
-      axios.post("http://localhost:8000/register", user).then((response) => {
+      axios.post("http://localhost:8081/register", user).then((response) => {
         console.log(response);
         Alert.alert(
             "Registration successful",

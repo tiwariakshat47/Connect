@@ -6,7 +6,7 @@ const localStrategy = require("passport-local").Strategy
 
 
 const app = express();
-const port = 8000
+const port = 8081
 const cors = require("cors")
 app.use(cors());
 
@@ -30,7 +30,7 @@ mongoose.connect(
 });
 
 app.listen(port, () => {
-    console.log("Server running on port 8000");
+    console.log("Server running on port 8081");
 });
 
 const User = require("./models/user");
