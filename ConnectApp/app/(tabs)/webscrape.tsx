@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Button, ScrollView, ActivityIndicator } from 'react-native';
+import { StyleSheet, Text, View, Button, ScrollView, ActivityIndicator, Platform } from 'react-native';
+import localIp from '@/components/secrets';  
 
 interface Class {
   code: string;
@@ -11,18 +12,33 @@ export default function WebScrapeScreen() {
   const [classes, setClasses] = useState<Class[]>([]);
   const [loading, setLoading] = useState(false);
 
+  const getFetchUrl = () => {
+    if (Platform.OS === 'android') {
+      // Android emulator
+      return 'http://localhost:5000/scrape?url=https://catalog.ucsc.edu/en/current/general-catalog/courses/';
+    } else if (Platform.OS === 'ios') {
+      // iOS emulator or physical device
+      const locIp = localIp;
+      return `http://${locIp}:5000/scrape?url=https://catalog.ucsc.edu/en/current/general-catalog/courses/`;
+    } else {
+      // Default fallback
+      return 'http://localhost:5000/scrape?url=https://catalog.ucsc.edu/en/current/general-catalog/courses/';
+    }
+  };
+
   const fetchData = async () => {
-    setLoading(true); 
+    setLoading(true);
     try {
-      const response = await fetch('http://localhost:5000/scrape?url=https://catalog.ucsc.edu/en/current/general-catalog/courses/');
+      const response = await fetch(getFetchUrl());
       const result = await response.json();
       const content = result.htmlContent;
       setHtmlContent(content); 
       setClasses(extractClasses(content)); 
     } catch (error) {
+      console.info(error)
       console.error(error);
     } finally {
-      setLoading(false); 
+      setLoading(false);
     }
   };
 
@@ -45,14 +61,14 @@ export default function WebScrapeScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Web Scrape Test</Text>
+      <Text style={[styles.title, styles.yellowText]}>Web Scrape Test</Text>
       <View style={styles.separator} />
       {loading ? (
         <ActivityIndicator size="large" color="#0000ff" />
       ) : (
         <ScrollView>
           {classes.map((classItem, index) => (
-            <Text key={index}>{classItem.code} - {classItem.name}</Text>
+            <Text key={index} style={styles.yellowText}>{classItem.code} - {classItem.name}</Text>
           ))}
         </ScrollView>
       )}
@@ -77,5 +93,8 @@ const styles = StyleSheet.create({
     height: 1,
     width: '80%',
     backgroundColor: '#eee',
+  },
+  yellowText: {
+    color: 'yellow',
   },
 });

@@ -6,6 +6,9 @@ from bs4 import BeautifulSoup
 app = Flask(__name__)
 CORS(app) 
 
+#this file is to scrape the data from the website
+#stores it in a jsonified response of html content
+
 @app.route('/scrape', methods=['GET'])
 def scrape():
     url = request.args.get('url')
@@ -19,4 +22,4 @@ def scrape():
     return jsonify({'htmlContent': '<ul>' + ''.join([f'<li>{item}</li>' for item in data]) + '</ul>'})
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')
