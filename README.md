@@ -11,7 +11,7 @@ Make sure you have dependencies installed (Expo and Node).
 CD Into the folder "ConnectApp" --> "cd ConnectApp"
 
 add your ip address to the secrets.js file as so:
-create a secrets.js file
+create a secrets.js file within the components folder
 
 and add the code:
 const localIp = 'YOUR IP ADDRESS GOES HERE';  
