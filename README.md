@@ -14,8 +14,7 @@ add your ip address to the secrets.js file as so:
 create a secrets.js file
 
 and add the code:
-// components/secrets.js
-const localIp = 'YOUR IP ADDRESS GOES HERE';  // replace with your actual local IP address
+const localIp = 'YOUR IP ADDRESS GOES HERE';  
 export default localIp;
 
 Run npm install
