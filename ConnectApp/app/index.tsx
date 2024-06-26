@@ -3,7 +3,6 @@ import { Text, View } from '@/components/Themed';
 import React, { useState } from 'react'
 import { Link, useRouter } from 'expo-router'
 
-export * from './actions/registerAction';
 
 
 const LoginPage = () => {
