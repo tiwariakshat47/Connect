@@ -14,7 +14,7 @@ const LoginPage = () => {
     //Handle press definition, temporarily is tabs until i can find out
     //how to make it (tabs) so that its hidden
     const handlePress = () => {
-        router.replace('tabs')
+        router.replace('(tabs)')
     }
 
     return (
