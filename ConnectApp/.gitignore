@@ -1,5 +1,6 @@
 # Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
 
+
 # dependencies
 node_modules/
 
@@ -7,6 +8,8 @@ node_modules/
 .expo/
 dist/
 web-build/
+
+
 
 # Native
 *.orig.*
@@ -40,4 +43,4 @@ yarn-error.*
 expo-env.d.ts
 # @end expo-cli
 
-components/secrets.js
+
