@@ -11,7 +11,6 @@ import {
   import { useNavigation } from "@react-navigation/native";
   import axios from "axios";
   
-  import { signup } from '../../actions/signupActions';
   
   const RegisterScreen = () => {
     const [email, setEmail] = useState("");

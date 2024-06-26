@@ -15,7 +15,7 @@ app.use(passport.initialize());
 const jwt = require("jsonwebtoken");
 
 mongoose
-  .connect("mongodb+srv://atiwari5:connect@cluster0.4xcqha3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", {
+  .connect("mongodb+srv://atiwari5:connect@cluster0.4xcqha3.mongodb.net", {
   })
   .then(() => {
     console.log("Connected to Mongo Db");
