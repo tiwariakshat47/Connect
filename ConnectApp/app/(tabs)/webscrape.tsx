@@ -61,14 +61,14 @@ export default function WebScrapeScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={[styles.title, styles.yellowText]}>Web Scrape Test</Text>
+      <Text style={[styles.title, styles.text]}>Web Scrape Test</Text>
       <View style={styles.separator} />
       {loading ? (
-        <ActivityIndicator size="large" color="#0000ff" />
+        <ActivityIndicator size="large" color="#ffffff" />
       ) : (
         <ScrollView>
           {classes.map((classItem, index) => (
-            <Text key={index} style={styles.yellowText}>{classItem.code} - {classItem.name}</Text>
+            <Text key={index} style={styles.text}>{classItem.code} - {classItem.name}</Text>
           ))}
         </ScrollView>
       )}
@@ -83,6 +83,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',
+    backgroundColor: 'black',
   },
   title: {
     fontSize: 20,
@@ -94,7 +95,7 @@ const styles = StyleSheet.create({
     width: '80%',
     backgroundColor: '#eee',
   },
-  yellowText: {
-    color: 'yellow',
+  text: {
+    color: 'white',
   },
 });
