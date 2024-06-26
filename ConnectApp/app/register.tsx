@@ -11,6 +11,8 @@ import {
   import { useNavigation } from "@react-navigation/native";
   import axios from "axios";
   
+  import { signup } from '../../actions/signupActions';
+  
   const RegisterScreen = () => {
     const [email, setEmail] = useState("");
     const [name, setName] = useState("");
@@ -27,7 +29,7 @@ import {
   
       // send a POST  request to the backend API to register the user
 
-      axios.post("http://localhost:8081/register", user).then((response) => {
+      axios.post("http://localhost:8000/register", user).then((response) => {
         console.log(response);
         Alert.alert(
             "Registration successful",
@@ -183,7 +185,7 @@ import {
               style={{ marginTop: 15 }}
             >
               <Text style={{ textAlign: "center", color: "gray", fontSize: 16 }}>
-                Already Have an account? Sign in
+                Already have an account? Sign in
               </Text>
             </Pressable>
           </View>
