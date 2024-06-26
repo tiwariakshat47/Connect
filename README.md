@@ -8,4 +8,5 @@ Clone the project.
 Make sure you have dependencies installed (Expo and Node).
 CD Into the folder "ConnectApp" --> "cd ConnectApp"
 Run npm install
+Run the backend: python backend/webscraper.py
 Run npm run (ios, web, or android) or npm start
