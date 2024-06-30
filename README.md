@@ -45,6 +45,9 @@ Run the folder:
 ```
 npm start
 ```
+
+6. Run the frontend:
+
 Open a new terminal and navigate back to project directory: ```cd connectApp```
 
 Start the frontend:
