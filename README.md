@@ -38,6 +38,15 @@ Start the backend server (assuming it's a Python script):
 ```bash
 python backend/webscraper.py
 ```
+
+Navigate into the backend folder  ```cd backend```
+
+Run the folder:
+```
+npm start
+```
+Open a new terminal and navigate back to project directory: ```cd connectApp```
+
 Start the frontend:
 ```
 npm start
