@@ -1,21 +1,38 @@
-import { KeyboardAvoidingView, StyleSheet, TextInput, Pressable} from 'react-native';
+import { KeyboardAvoidingView, StyleSheet, TextInput, Pressable, Alert} from 'react-native';
 import { Text, View } from '@/components/Themed';
 import React, { useState } from 'react'
 import { Link, useRouter } from 'expo-router'
+import axios from "axios";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 
 
 const LoginPage = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const handleLogin = () => {
+        const user = {
+            email: email,
+            password: password
+        }
+
+        axios.post("http://localhost:8000/login", user).then((response) => {
+            console.log(response);
+            const token = response.data.token;
+            AsyncStorage.setItem("authToken", token);
+
+            //Hopefully this works
+            router.replace('(tabs)')
+            
+        })
+        .catch((error) => {
+            Alert.alert("Login Error", "Invalid email or password");
+            console.log("Login Error", error);
+        });
+    };
 
     const router = useRouter();
 
-    //Handle press definition, temporarily is tabs until i can find out
-    //how to make it (tabs) so that its hidden
-    const handlePress = () => {
-        router.replace('(tabs)')
-    }
 
     return (
         <View style={styles.test}>
@@ -68,7 +85,7 @@ const LoginPage = () => {
                         borderRadius:6
                     }}
                     //Handlepress allows user to go from login page to tabs
-                    onPress={handlePress}>
+                    onPress={handleLogin}>
                             
                     <Text style={{color:'white', fontSize:16, fontWeight:'bold',textAlign:'center'}}>Login</Text>
                     
