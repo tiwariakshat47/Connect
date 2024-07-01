@@ -10,7 +10,17 @@ const ProfilePage = () => {
     router.replace('')
   };
 
+
+  // const username = AsyncStorage.getItem("authToken");
+
+  // var pageTitle = `Welcome, { username.firstname }`
+
   return (
+
+    <View>
+{/*     
+    <Text>{ pageTitle }</Text> */}
+
     <Pressable 
       style={{
           width:200, 
@@ -26,6 +36,7 @@ const ProfilePage = () => {
       <Text style={{color:'white', fontSize:16, fontWeight:'bold',textAlign:'center'}}>Log Out</Text>
       
   </Pressable>
+  </View>
   )
 }
 
