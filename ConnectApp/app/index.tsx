@@ -1,6 +1,6 @@
 import { KeyboardAvoidingView, StyleSheet, TextInput, Pressable, Alert} from 'react-native';
 import { Text, View } from '@/components/Themed';
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, useRouter } from 'expo-router'
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -10,6 +10,25 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 const LoginPage = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+    useEffect (() => {
+        const checkLoginStatus = async() => {
+            try {
+                const token = await AsyncStorage.getItem("authToken");
+
+                if (token) {
+                    router.replace('(tabs)')
+                } 
+                else {
+                    //token not found
+                }
+            } catch (error) {
+                console.log("Error:", error)
+            }
+        };
+
+        checkLoginStatus();
+    }, []);
     const handleLogin = () => {
         const user = {
             email: email,
