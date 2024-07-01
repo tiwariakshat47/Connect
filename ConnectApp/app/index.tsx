@@ -29,6 +29,7 @@ const LoginPage = () => {
 
         checkLoginStatus();
     }, []);
+    
     const handleLogin = () => {
         const user = {
             email: email,
