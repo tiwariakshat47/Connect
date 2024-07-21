@@ -41,17 +41,35 @@ app.post("/register", (req,res) => {
   newUser
     .save()
     .then(() => {
-      res.status(200).json({ message: "User registered successfully "});
+      res.status(200).json({ message: "User registered successfully."});
     })
     .catch((err) => {
       console.log("Error registering user", err);
-      res.status(500).json({ message: "Error registering the user"});
+      res.status(500).json({ message: "Error registering the user."});
     });
 
 });
 
-//Adding a new class to an account
-/*---*/
+//Adding a new class to the mongoDB Database
+app.post("/uploadclass", (req, res) => {
+  const {title, professor, code} = req.body;
+
+  const newClass = new Class ({title, professor, code});
+
+  newClass.save().then(() => {
+    res.status(200).json({ message: "Class added to database successfully."});
+  }).catch((err) => {
+    console.log("Error adding class to database.", err);
+    res.status(500).json({ message: "Error adding class to database."});
+  });
+});
+
+//Adding existing Class to User's account
+app.post("/addclass", (req, res) => {
+  const {ClassId, user} = req.body;
+
+  
+});
 
 //Function creating token for user
 
