@@ -31,6 +31,8 @@ app.listen(port, () => {
 const User = require("./models/user");
 const Message = require("./models/message");
 
+
+//Adding a new account
 app.post("/register", (req,res) => {
   const {name, email, password, image} = req.body;
 
@@ -47,6 +49,9 @@ app.post("/register", (req,res) => {
     });
 
 });
+
+//Adding a new class to an account
+/*---*/
 
 //Function creating token for user
 
