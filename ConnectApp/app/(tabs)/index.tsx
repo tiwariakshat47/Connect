@@ -6,7 +6,7 @@ import { useState } from "react";
 import { Dropdown } from "react-native-element-dropdown";
 
 export default function TabOneScreen() {
-  const [value, setValue] = useState(null);
+  const [value, setValue] = useState("");
   const [isFocus, setIsFocus] = useState(false);
 
   const deleteClass = () => {
@@ -30,6 +30,7 @@ export default function TabOneScreen() {
       <Pressable onPress={deleteClass}>
         <Text
           style={{
+            backgroundColor: "red",
             color: "white",
             fontSize: 16,
             fontWeight: "bold",
@@ -44,9 +45,9 @@ export default function TabOneScreen() {
         data={data}
         labelField="label"
         valueField="value"
+        value={value}
         onChange={item => {
           setValue(item.value);
-          setIsFocus(false);
         }}
         searchPlaceholder="Search Class by Name, Code, or Professor..."
       />
